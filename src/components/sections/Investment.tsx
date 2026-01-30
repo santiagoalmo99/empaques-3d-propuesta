@@ -117,6 +117,11 @@ const Investment = () => {
                                     <p className="text-yellow-500/80 text-[10px] uppercase tracking-widest font-bold mt-1">
                                         Precio especial para ustedes
                                     </p>
+                                    <div className="mt-4 px-4 py-2 rounded-lg bg-slate-900/50 border border-white/5 backdrop-blur-sm">
+                                        <p className="text-slate-400 text-[10px] uppercase tracking-widest font-semibold">
+                                            + $250,000 COP / Mes <span className="text-slate-600 normal-case tracking-normal">(Mantenimiento & Hosting)</span>
+                                        </p>
+                                    </div>
                                 </div>
                                 <div className="flex justify-center gap-8 mt-8 text-xs font-mono text-slate-500">
                                     <span>50% Inicio</span>
