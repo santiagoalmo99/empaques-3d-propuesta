@@ -1,4 +1,4 @@
-import React, { useRef, useMemo } from 'react';
+import { useRef, useMemo, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { 
   PresentationControls, 
@@ -7,7 +7,6 @@ import {
   useTexture,
   Float,
   Center,
-  Text,
   MeshTransmissionMaterial
 } from '@react-three/drei';
 import * as THREE from 'three';
@@ -21,7 +20,7 @@ const CoffeeCupModel = ({ materialType = 'kraft', logoUrl }: { materialType?: st
   
   const logoTexture = useTexture(logoUrl || 'https://cdn-icons-png.flaticon.com/512/9333/9333999.png');
 
-  useFrame((state) => {
+  useFrame(() => {
     if (meshRef.current) {
       // Gentle floating animation
       // meshRef.current.rotation.y += 0.005;
@@ -88,8 +87,6 @@ export const CoffeeCupScene = () => {
             rotation={[0, 0, 0]}
             polar={[-Math.PI / 4, Math.PI / 4]}
             azimuth={[-Math.PI / 4, Math.PI / 4]}
-            config={{ mass: 2, tension: 400 }}
-            snap={{ mass: 4, tension: 400 }}
           >
              <CoffeeCupModel />
           </PresentationControls>

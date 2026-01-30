@@ -1,5 +1,3 @@
-import React from 'react';
-
 const FAQ = () => {
   const faqs = [
     { q: "¿En qué tecnología se construye?", a: "React 18 + Three.js para el frontal, Firebase para la inteligencia y base de datos, y Cloudflare para la distribución global." },
