@@ -3,10 +3,7 @@ const Footer = () => {
     <footer className="py-12 bg-slate-950 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex items-center gap-2 opacity-50">
-          <div className="w-6 h-6 rounded bg-slate-800 flex items-center justify-center">
-            <span className="text-white font-bold text-xs italic">E</span>
-          </div>
-          <span className="font-bold tracking-tight text-sm">EMPAQUES3D</span>
+          <img src="/trashy_logo.png" alt="TRASHY" className="h-6 w-auto object-contain brightness-0 invert" />
         </div>
         
         <p className="text-slate-500 text-xs font-mono">

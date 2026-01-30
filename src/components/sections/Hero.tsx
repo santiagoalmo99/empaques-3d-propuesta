@@ -1,66 +1,97 @@
 import { motion } from 'framer-motion';
+import { CoffeeCupScene } from '../3d/CoffeeCup';
 
 const Hero = () => {
-  return (
-    <section className="relative min-h-[90vh] flex items-center justify-center pt-24 pb-12 overflow-hidden">
-      {/* Background Decor */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[500px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none"></div>
-      
-      <div className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <motion.div 
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6 group cursor-default">
-            <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></div>
-            <span className="text-blue-400 text-xs font-bold uppercase tracking-widest leading-none">Vapor-Fast Engineering</span>
-          </div>
-          
-          <h1 className="text-5xl md:text-7xl font-display font-bold text-white mb-6 leading-tight tracking-tight">
-            Vende en <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">3D Real</span> <br/>
-            antes de fabricar.
-          </h1>
-          
-          <p className="text-xl text-slate-400 max-w-xl mb-10 leading-relaxed">
-            Eliminamos el "miedo a comprar" con un ecosistema de visualización física acelerado por IA. Tu e-commerce, convertido en una herramienta industrial.
-          </p>
-          
-          <div className="flex flex-wrap gap-4">
-            <button className="px-8 py-4 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white font-bold transition-all shadow-xl shadow-blue-600/20 active:scale-95 text-lg">
-              INICIAR DESPLIEGUE 🚀
-            </button>
-            <div className="flex items-center gap-4 px-6 py-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-              <div className="flex -space-x-3">
-                {[1,2,3].map(i => (
-                  <div key={i} className="w-8 h-8 rounded-full border-2 border-slate-950 bg-slate-800"></div>
-                ))}
-              </div>
-              <span className="text-sm font-medium text-slate-300">Unido a 12 Marcas Pro</span>
-            </div>
-          </div>
-        </motion.div>
+    return (
+        <section className="relative min-h-[90vh] flex items-center justify-center pt-24 overflow-hidden bg-[#0B1121]">
+            
+            {/* Background Atmosphere */}
+            <div className="absolute inset-0 z-0 overflow-hidden bg-[#0B1121]">
+                {/* 1. Visible Grid (Stronger Contrast) */}
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+                
+                {/* 2. Strong Pulsing Glow (Double Layer for Visibility) */}
+                <motion.div 
+                    animate={{ 
+                        scale: [1, 1.4, 1],
+                        opacity: [0.4, 0.8, 0.4],
+                    }}
+                    transition={{ 
+                        duration: 6, 
+                        repeat: Infinity, 
+                        ease: "easeInOut" 
+                    }}
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/40 blur-[80px] rounded-full mix-blend-screen pointer-events-none"
+                />
+                <motion.div 
+                    animate={{ 
+                        scale: [1.2, 1, 1.2],
+                        opacity: [0.3, 0.6, 0.3],
+                    }}
+                    transition={{ 
+                        duration: 8, 
+                        repeat: Infinity, 
+                        ease: "easeInOut",
+                        delay: 1
+                    }}
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-cyan-600/20 blur-[120px] rounded-full mix-blend-screen pointer-events-none"
+                />
 
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9, rotateY: 20 }}
-          animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-          className="relative aspect-square max-w-[500px] mx-auto perspective-1000"
-        >
-          {/* Placeholder for real 3D loader */}
-          <div className="w-full h-full bg-gradient-to-br from-blue-600/20 via-slate-900 to-slate-950 rounded-[3rem] border border-white/10 shadow-2xl flex items-center justify-center group overflow-hidden">
-            <div className="absolute inset-0 bg-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
-            <div className="text-center">
-              <div className="w-24 h-24 mb-4 mx-auto bg-blue-500/20 rounded-full flex items-center justify-center animate-bounce">
-                <i data-lucide="box" className="w-12 h-12 text-blue-500"></i>
-              </div>
-              <p className="text-blue-400 font-mono text-sm uppercase tracking-widest">Inyectando WebGL Engine...</p>
+                {/* 3. Subtle ambient light from top */}
+                <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
             </div>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
+
+            <div className="relative z-10 w-full max-w-[1400px] px-6 grid lg:grid-cols-2 gap-12 items-center">
+                
+                {/* --- Left Column: Text & CTA --- */}
+                <div className="text-left space-y-8 relative z-20 pt-10 md:pt-0 pb-12 lg:pb-0">
+                     <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                     >
+                        <h1 className="text-5xl md:text-8xl font-black tracking-tighter text-white leading-[0.9] font-display mb-6">
+                            El Futuro <br/>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">de Empaques</span> <br/>
+                            <span className="text-shimmer drop-shadow-[0_0_30px_rgba(59,130,246,0.5)]">
+                                Empieza Hoy.
+                            </span>
+                        </h1>
+                        
+                        <p className="text-lg md:text-2xl text-slate-400 font-light leading-relaxed max-w-xl border-l-4 border-blue-500 pl-6 my-8">
+                            No venimos a venderles una página web. <br/>
+                            Venimos a instalar una <strong className="text-white font-bold">Máquina de Ventas Automática</strong> que trabaja mientras ustedes duermen.
+                        </p>
+
+                        <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                            <a href="#demo" className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-blue-500/50 hover:scale-105 active:scale-95 flex items-center justify-center gap-3 group">
+                                Ver El Futuro
+                                <span className="group-hover:translate-x-1 transition-transform">→</span>
+                            </a>
+                            <a href="#problem" className="px-8 py-4 bg-transparent border border-slate-700 hover:border-white/50 text-slate-300 hover:text-white rounded-full font-medium text-lg transition-all text-center">
+                                ¿Por qué ahora?
+                            </a>
+                        </div>
+                     </motion.div>
+
+                     {/* Social Proof / Trust Indicators Removed per request */}
+                </div>
+
+                {/* --- Right Column: The 3D Simulator --- */}
+                <motion.div 
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1, delay: 0.2 }}
+                    className="relative w-full h-[50vh] lg:h-[800px] flex items-center justify-center z-10"
+                >
+                    {/* Simulator Container - Adjusted position to be closer to text and centered vertically */}
+                    <div className="absolute inset-0 scale-100 lg:scale-125 lg:-translate-x-12 lg:-translate-y-12 pointer-events-auto flex items-center justify-center">
+                         <CoffeeCupScene transparent />
+                    </div>
+                </motion.div>
+            </div>
+        </section>
+    );
 };
 
 export default Hero;
