@@ -16,33 +16,14 @@ const Hero = () => {
                     <div className="absolute inset-0 bg-gradient-to-b from-blue-950/20 to-[#0B1121]"></div>
                 </div>
 
-                {/* DESKTOP HEAVY ANIMATIONS (Hidden on Mobile) */}
+                {/* DESKTOP BACKGROUND (Static for Max Performance) */}
                 <div className="hidden md:block absolute inset-0">
-                    {/* 2. Strong Pulsing Glow (Double Layer for Visibility) */}
-                    <motion.div 
-                        animate={{ 
-                            scale: [1, 1.4, 1],
-                            opacity: [0.4, 0.8, 0.4],
-                        }}
-                        transition={{ 
-                            duration: 6, 
-                            repeat: Infinity, 
-                            ease: "easeInOut" 
-                        }}
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/40 blur-[80px] rounded-full mix-blend-screen pointer-events-none"
+                    {/* 2. Strong Glow (Static - No Animation Loop) */}
+                    <div 
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/40 blur-[80px] rounded-full mix-blend-screen pointer-events-none scale-125 opacity-60"
                     />
-                    <motion.div 
-                        animate={{ 
-                            scale: [1.2, 1, 1.2],
-                            opacity: [0.3, 0.6, 0.3],
-                        }}
-                        transition={{ 
-                            duration: 8, 
-                            repeat: Infinity, 
-                            ease: "easeInOut",
-                            delay: 1
-                        }}
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-cyan-600/20 blur-[120px] rounded-full mix-blend-screen pointer-events-none"
+                    <div 
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-cyan-600/20 blur-[120px] rounded-full mix-blend-screen pointer-events-none scale-110 opacity-50"
                     />
                 </div>
 
