@@ -140,8 +140,8 @@ const CoffeeCupModel = ({ logoUrl, color }: { logoUrl?: string, color?: string }
        <Canvas 
          shadows 
          camera={{ position: [0, 4, 14], fov: 35 }} // Zoomed out (Z: 14) for better fit
-         dpr={[1, 2]} 
-         gl={{ preserveDrawingBuffer: true, antialias: true, toneMapping: THREE.ACESFilmicToneMapping, alpha: true }} 
+         dpr={[1, 1.5]} // Optimized for mobile performance (max 1.5x pixel ratio)
+         gl={{ preserveDrawingBuffer: true, antialias: true, toneMapping: THREE.ACESFilmicToneMapping, alpha: true }}  
        >
          {!transparent && <color attach="background" args={['#0B1121']} />} 
         

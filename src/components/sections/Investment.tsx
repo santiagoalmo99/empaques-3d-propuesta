@@ -3,7 +3,7 @@ import { Star, CheckCircle, Bot, Plus, Info, Server, Megaphone, Repeat } from 'l
 
 const Investment = () => {
     return (
-        <section id="investment" className="py-32 bg-slate-950 border-t border-slate-900 relative">
+        <section id="investment" className="py-32 bg-slate-950 border-t border-slate-900 relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 relative z-10">
                 <div className="text-center mb-20">
                     <h2 className="text-4xl md:text-7xl font-display font-bold mb-6 text-shimmer tracking-tight">Inversión Estratégica</h2>

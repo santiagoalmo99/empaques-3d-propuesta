@@ -10,32 +10,41 @@ const Hero = () => {
                 {/* 1. Visible Grid (Stronger Contrast) */}
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
                 
-                {/* 2. Strong Pulsing Glow (Double Layer for Visibility) */}
-                <motion.div 
-                    animate={{ 
-                        scale: [1, 1.4, 1],
-                        opacity: [0.4, 0.8, 0.4],
-                    }}
-                    transition={{ 
-                        duration: 6, 
-                        repeat: Infinity, 
-                        ease: "easeInOut" 
-                    }}
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/40 blur-[80px] rounded-full mix-blend-screen pointer-events-none"
-                />
-                <motion.div 
-                    animate={{ 
-                        scale: [1.2, 1, 1.2],
-                        opacity: [0.3, 0.6, 0.3],
-                    }}
-                    transition={{ 
-                        duration: 8, 
-                        repeat: Infinity, 
-                        ease: "easeInOut",
-                        delay: 1
-                    }}
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-cyan-600/20 blur-[120px] rounded-full mix-blend-screen pointer-events-none"
-                />
+                {/* STATIC MOBILE BACKGROUND (Lightweight) */}
+                <div className="absolute inset-0 block md:hidden">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-blue-900/40 blur-[60px] rounded-full mix-blend-screen"></div>
+                    <div className="absolute inset-0 bg-gradient-to-b from-blue-950/20 to-[#0B1121]"></div>
+                </div>
+
+                {/* DESKTOP HEAVY ANIMATIONS (Hidden on Mobile) */}
+                <div className="hidden md:block absolute inset-0">
+                    {/* 2. Strong Pulsing Glow (Double Layer for Visibility) */}
+                    <motion.div 
+                        animate={{ 
+                            scale: [1, 1.4, 1],
+                            opacity: [0.4, 0.8, 0.4],
+                        }}
+                        transition={{ 
+                            duration: 6, 
+                            repeat: Infinity, 
+                            ease: "easeInOut" 
+                        }}
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/40 blur-[80px] rounded-full mix-blend-screen pointer-events-none"
+                    />
+                    <motion.div 
+                        animate={{ 
+                            scale: [1.2, 1, 1.2],
+                            opacity: [0.3, 0.6, 0.3],
+                        }}
+                        transition={{ 
+                            duration: 8, 
+                            repeat: Infinity, 
+                            ease: "easeInOut",
+                            delay: 1
+                        }}
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-cyan-600/20 blur-[120px] rounded-full mix-blend-screen pointer-events-none"
+                    />
+                </div>
 
                 {/* 3. Subtle ambient light from top */}
                 <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
