@@ -55,7 +55,7 @@ const LogoDecal = ({ logoUrl }: { logoUrl?: string }) => {
             <Decal 
                 position={[0, 9.0, 3.6]} 
                 rotation={[0, 0, 0]} 
-                scale={[5.5, 5.5, 2.5]} 
+                scale={[5.5, 5.5, 1.5]} 
             >
                 <meshStandardMaterial 
                     map={texture} 
@@ -72,7 +72,7 @@ const LogoDecal = ({ logoUrl }: { logoUrl?: string }) => {
             <Decal 
                 position={[0, 9.0, -3.6]} 
                 rotation={[0, Math.PI, 0]} 
-                scale={[5.5, 5.5, 2.5]} 
+                scale={[5.5, 5.5, 1.5]} 
             >
                 <meshStandardMaterial 
                     map={texture} 
